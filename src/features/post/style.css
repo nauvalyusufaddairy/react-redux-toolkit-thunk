@@ -20,3 +20,7 @@ article{
 body{
     background-color: gray;
 }
+form{
+    display: flex;
+    flex-direction: column;
+}

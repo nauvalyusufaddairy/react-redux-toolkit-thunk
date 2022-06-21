@@ -3,15 +3,27 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { postAdded } from "./postSlice";
+import "./style.css";
 const AddPostForm = () => {
   const [title, setTile] = useState("");
   const [content, setContent] = useState();
   const onTitleChange = (e) => setTile(e.target.value);
   const onContentChange = (e) => setContent(e.target.value);
-  const onSvePostClicked = () => {
+
+  const dispatch = useDispatch();
+
+  const onSavePostClicked = () => {
     if (title && content) {
-      dis;
+      dispatch(
+        postAdded({
+          id: nanoid(),
+          title,
+          content,
+        })
+      );
     }
+    setTile("");
+    setContent("");
   };
   return (
     <section>
@@ -31,7 +43,9 @@ const AddPostForm = () => {
           value={content}
           onChange={onContentChange}
         />
-        <button>SAVE POST</button>
+        <button type="button" onClick={onSavePostClicked}>
+          SAVE POST
+        </button>
       </form>
     </section>
   );
