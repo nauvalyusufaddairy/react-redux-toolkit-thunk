@@ -1,9 +1,9 @@
 import React from "react";
-import Counter from "./features/counter/Counter";
+import PostList from "./features/post/PostList";
 export const App = () => {
   return (
     <div>
-      <Counter />
+      <PostList />
     </div>
   );
 };
