@@ -7,6 +7,7 @@ import "./style.css";
 
 const PostList = () => {
   const post = useSelector(selectAllPosts);
+  const orderdPost = post.slice().sort((a, b) => b.date.localeCompare(a.date));
   const renderedPost = post.map((post) => (
     <article key={post.id}>
       <h3>{post.title}</h3>
